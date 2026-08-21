@@ -1,20 +1,15 @@
-# 확장자 없는 주소로 들어와도 열리도록 연결합니다.
-/brand            /brand.html            200
-/category         /category.html         200
-/deals            /deals.html            200
-/stores           /stores.html           200
-/stores/1         /store-detail.html     200
-/store-detail     /store-detail.html     200
-/business         /business.html         200
-/supply           /supply.html           200
-/membership       /membership.html       200
-/faq              /faq.html              200
-/notify           /notify.html           200
-/privacy          /privacy.html          200
-/terms            /terms.html            200
+# ------------------------------------------------------------------
+# Cloudflare Pages는 /brand.html 요청을 자동으로 /brand 로 308 리디렉션합니다.
+# 따라서 "/brand → /brand.html" 같은 규칙을 넣으면 무한 루프가 생깁니다.
+# 확장자 없는 주소는 별도 설정 없이 이미 동작하므로 여기에 적지 않습니다.
+# 아래에는 실제로 다른 페이지로 보내야 하는 별칭만 둡니다.
+# ------------------------------------------------------------------
 
-# 자주 쓰이는 다른 표현
-/open             /notify.html           301
-/contact          /notify.html           301
-/store            /stores.html           301
-/franchise        /supply.html           301
+/open        /notify    301
+/contact     /notify    301
+/inquiry     /notify    301
+/store       /stores    301
+/stores/1    /store-detail  301
+/franchise   /supply    301
+/partner     /supply    301
+/b2b         /business  301

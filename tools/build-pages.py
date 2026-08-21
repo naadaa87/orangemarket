@@ -2050,4 +2050,33 @@ write("404.html", "페이지를 찾을 수 없습니다",
       nf, active="")
 
 
+
+# ======================================================================
+# 마무리: 확장자 없는 주소로 링크 정리
+#   Cloudflare Pages가 /brand.html 을 /brand 로 308 리디렉션하므로,
+#   처음부터 /brand 로 링크해 불필요한 리디렉션을 없앱니다.
+# ======================================================================
+import re as _re, glob as _glob
+from urllib.parse import urlparse as _urlparse
+
+_HOST = _urlparse(SITE).netloc
+
+
+def _clean(name):
+    base = name[:-5] if name.endswith(".html") else name
+    return "/" if base == "index" else "/" + base
+
+
+def finalize():
+    for f in sorted(_glob.glob(os.path.join(OUT, "*.html"))):
+        s = open(f, encoding="utf-8").read()
+        s = _re.sub(r'href="([a-z0-9\-]+)\.html(#[^"]*)?"',
+                    lambda m: 'href="%s%s"' % (_clean(m.group(1) + ".html"), m.group(2) or ""), s)
+        s = _re.sub(r'(href=|content=)"https://%s/([a-z0-9\-]+)\.html"' % _re.escape(_HOST),
+                    lambda m: '%s"https://%s%s"' % (m.group(1), _HOST, _clean(m.group(2) + ".html")), s)
+        open(f, "w", encoding="utf-8").write(s)
+    print("링크를 확장자 없는 주소로 정리했습니다.")
+
+
+finalize()
 print("\n14개 페이지를 다시 만들었습니다.")

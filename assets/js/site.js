@@ -38,10 +38,18 @@
     window.addEventListener("scroll", onScroll, { passive: true });
 
     // 현재 페이지 메뉴 표시
-    var here = location.pathname.split("/").pop() || "index.html";
+    // Cloudflare Pages는 /brand.html 을 /brand 로 정규화하므로 양쪽 모두 인식합니다.
+    var norm = function (path) {
+      var p = (path || "").split("?")[0].split("#")[0];
+      p = p.replace(/\/+$/, "");
+      p = p.replace(/\.html$/, "");
+      p = p.replace(/\/index$/, "");
+      if (p.charAt(0) !== "/") p = "/" + p;
+      return p === "" ? "/" : p;
+    };
+    var here = norm(location.pathname);
     $$(".gnb a", hd).forEach(function (a) {
-      var href = (a.getAttribute("href") || "").split("/").pop();
-      if (href && href === here) a.setAttribute("aria-current", "page");
+      if (norm(a.getAttribute("href")) === here) a.setAttribute("aria-current", "page");
     });
   }
 

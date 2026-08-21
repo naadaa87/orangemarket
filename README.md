@@ -165,10 +165,35 @@ Cloudflare에서 네임서버를 관리 중이면 DNS 레코드가 자동 생성
 > 웹폰트를 사내망에서 직접 호스팅해야 한다면, CSP의 `cdn.jsdelivr.net`·`fonts.googleapis.com` 항목을 지우고
 > 6장의 폰트 자체 호스팅 방법을 따라 주세요.
 
-### 짧은 주소 (`_redirects`)
+### 주소 규칙 (중요)
 
-`/brand`, `/stores`, `/faq` 처럼 확장자 없는 주소로도 접속됩니다.
-`/open`, `/contact` 는 오픈알림 페이지로, `/franchise` 는 입점·납품 페이지로 넘깁니다.
+Cloudflare Pages는 **`/brand.html` 요청을 자동으로 `/brand` 로 308 리디렉션**합니다.
+이 동작은 대시보드에서 끌 수 없습니다.
+
+따라서 `_redirects` 에 아래와 같은 규칙을 넣으면 **무한 리디렉션 루프**가 생겨
+`ERR_TOO_MANY_REDIRECTS` 오류가 납니다.
+
+```
+# 절대 넣지 마세요 — 무한 루프가 생깁니다
+/brand    /brand.html    200
+```
+
+```
+/brand  →  (내 규칙) /brand.html  →  (Cloudflare 기본) /brand  →  (내 규칙) /brand.html  →  …
+```
+
+확장자 없는 주소는 **아무 설정 없이 이미 동작**하므로 규칙을 적을 필요가 없습니다.
+사이트의 모든 내부 링크도 `href="/brand"` 형태로 되어 있어 리디렉션 없이 바로 열립니다.
+
+현재 `_redirects` 에는 실제로 다른 페이지로 보내야 하는 별칭만 들어 있습니다.
+
+| 입력 주소 | 이동할 곳 |
+|---|---|
+| `/open`, `/contact`, `/inquiry` | `/notify` |
+| `/store` | `/stores` |
+| `/stores/1` | `/store-detail` |
+| `/franchise`, `/partner` | `/supply` |
+| `/b2b` | `/business` |
 
 ---
 
@@ -199,6 +224,7 @@ orange-market-web/
 │
 ├─ functions/api/lead.js   문의 접수 API (Pages Functions)
 ├─ tools/build-pages.py    페이지 재생성 스크립트 (선택)
+├─ tools/serve.py          로컬 미리보기 서버 (선택)
 │
 ├─ _headers                보안 헤더·캐시 정책
 ├─ _redirects              짧은 주소 연결
@@ -206,6 +232,18 @@ orange-market-web/
 ├─ CONTENT-GUIDE.md        확정 전 항목 교체 위치 안내
 └─ README.md
 ```
+
+### 로컬에서 확인하기
+
+HTML 파일을 더블클릭해서 열면 `/brand` 같은 주소가 동작하지 않습니다.
+Cloudflare와 같은 방식으로 확인하려면 아래 중 하나를 쓰세요.
+
+```bash
+python3 tools/serve.py          # 내장 미리보기 서버 → http://localhost:8080
+npx wrangler pages dev .        # Cloudflare 공식 도구 (Functions 폼까지 함께 테스트)
+```
+
+문의 폼(`functions/api/lead.js`)까지 확인하려면 `wrangler` 쪽을 쓰셔야 합니다.
 
 ### 내용을 고치는 두 가지 방법
 
@@ -311,6 +349,7 @@ CDN이 막혀도 `Apple SD Gothic Neo` → `맑은 고딕` 순으로 대체되�
 - [ ] 모바일(390px)·태블릿·데스크톱에서 레이아웃이 깨지지 않습니다
 - [ ] 키보드 Tab만으로 모든 메뉴와 폼을 조작할 수 있습니다
 - [ ] 커스텀 도메인의 canonical·og:url·sitemap 주소가 실제 도메인입니다
+- [ ] `_redirects` 에 `/경로 → /경로.html 200` 형태의 규칙이 없습니다 (무한 루프 원인)
 - [ ] Google Search Console에 `sitemap.xml` 을 제출했습니다
 
 ---
