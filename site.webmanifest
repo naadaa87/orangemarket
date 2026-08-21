@@ -1,0 +1,13 @@
+{
+  "name": "오렌지 마켓",
+  "short_name": "오렌지마켓",
+  "description": "초저가 창고형 할인매장 오렌지 마켓",
+  "lang": "ko",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FF6A00",
+  "icons": [
+    { "src": "/assets/icons/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

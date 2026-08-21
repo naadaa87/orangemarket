@@ -1,0 +1,20 @@
+# 확장자 없는 주소로 들어와도 열리도록 연결합니다.
+/brand            /brand.html            200
+/category         /category.html         200
+/deals            /deals.html            200
+/stores           /stores.html           200
+/stores/1         /store-detail.html     200
+/store-detail     /store-detail.html     200
+/business         /business.html         200
+/supply           /supply.html           200
+/membership       /membership.html       200
+/faq              /faq.html              200
+/notify           /notify.html           200
+/privacy          /privacy.html          200
+/terms            /terms.html            200
+
+# 자주 쓰이는 다른 표현
+/open             /notify.html           301
+/contact          /notify.html           301
+/store            /stores.html           301
+/franchise        /supply.html           301
