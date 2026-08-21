@@ -55,18 +55,18 @@ Pull Request를 열면 검수용 Preview URL이 따로 생성됩니다.
 
 | 파일 | 위치 | 현재 값 |
 |---|---|---|
-| 모든 `.html` | `<link rel="canonical">`, `og:url`, `og:image` | `https://orange-market.pages.dev` |
-| `sitemap.xml` | 모든 `<loc>` | `https://orange-market.pages.dev` |
-| `robots.txt` | `Sitemap:` | `https://orange-market.pages.dev` |
+| 모든 `.html` | `<link rel="canonical">`, `og:url`, `og:image` | `https://hmkorangemarket.pages.dev` |
+| `sitemap.xml` | 모든 `<loc>` | `https://hmkorangemarket.pages.dev` |
+| `robots.txt` | `Sitemap:` | `https://hmkorangemarket.pages.dev` |
 
 한 번에 바꾸는 방법 :
 
 ```bash
 # macOS
-grep -rl "orange-market.pages.dev" . | xargs sed -i '' 's|orange-market.pages.dev|www.오렌지마켓도메인.co.kr|g'
+grep -rl "hmkorangemarket.pages.dev" . | xargs sed -i '' 's|hmkorangemarket.pages.dev|www.오렌지마켓도메인.co.kr|g'
 
 # Linux
-grep -rl "orange-market.pages.dev" . | xargs sed -i 's|orange-market.pages.dev|www.오렌지마켓도메인.co.kr|g'
+grep -rl "hmkorangemarket.pages.dev" . | xargs sed -i 's|hmkorangemarket.pages.dev|www.오렌지마켓도메인.co.kr|g'
 ```
 
 또는 `tools/build-pages.py` 상단의 `SITE` 값을 바꾸고 재생성해도 됩니다. (4장 참고)

@@ -21,7 +21,7 @@ import os, sys, json
 OUT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 
-SITE = "https://orange-market.pages.dev"   # 실제 도메인 확정 시 이 값만 교체
+SITE = "https://hmkorangemarket.pages.dev"   # 실제 도메인 확정 시 이 값만 교체
 BRAND = "오렌지 마켓"
 
 NAV = [
@@ -236,11 +236,11 @@ body = """
   <div class="wrap">
     <div class="hero__grid">
       <div>
-        <p class="hero__status"><span>초저가! 창고형!</span> <b>1호점 오픈 준비 중</b></p>
-        <h1 class="h1">싸게 파는 이유를<br><em>숨기지 않습니다</em></h1>
+        <p class="hero__status"><span>초저가! 창고형!</span> <b class="en">GRAND OPEN COMING SOON</b></p>
+        <h1 class="h1">오렌지 마켓 독점!<br><em>초저가 할인마켓</em></h1>
         <p class="hero__lead">
-          오렌지 마켓은 제조사와 산지에서 바로 사고, 낱개 대신 박스와 팔레트 단위로 담습니다.
-          창고를 그대로 매장으로 쓰기 때문에 진열비와 보관비가 처음부터 가격에서 빠집니다.
+          오렌지 마켓은 카테고리별 전문 MD가 꼼꼼하게 상품을 골라서, 박스와 팔레트 단위로 담습니다.
+          최적화된 창고형 매장으로 비용을 최소화하고, 고객분들께 초저가 상품을 선보입니다.
         </p>
         <div class="btn-row hero__cta">
           <a class="btn btn--primary btn--lg" href="notify.html">오픈 알림 신청</a>
@@ -314,8 +314,8 @@ body = """
           <span class="sign__txt"><span class="sign__kr">매장 통로 안내</span><span class="sign__en">Aisle Directory</span></span>
         </span>
       </span>
-      <h2 class="h2">다섯 개의 통로로<br>매장을 나눴습니다</h2>
-      <p class="lead">천장 안내판의 번호만 따라가면 됩니다. 홈페이지의 카테고리 구성도 실제 매장 통로와 똑같이 맞췄습니다.</p>
+      <h2 class="h2">오렌지 고객들을 위한<br>5가지 핵심 카테고리</h2>
+      <p class="lead">천장 안내판의 번호만 따라가면 됩니다.</p>
     </div>
 
     <div class="aisle">
@@ -359,7 +359,7 @@ body = """
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">PRICE LABEL</p>
-      <h2 class="h2">가격표에 무엇을 적을지<br>먼저 정해 두었습니다</h2>
+      <h2 class="h2">초저가!<br>실제 가격만 표기한 가격표</h2>
       <p class="lead">싼 것처럼 보이게 만드는 표기는 쓰지 않습니다. 오렌지 마켓의 모든 가격표에는 아래 다섯 가지가 반드시 들어갑니다.</p>
     </div>
 
@@ -425,8 +425,8 @@ body = """
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">OPENING PROGRESS</p>
-      <h2 class="h2">지금 어디까지 왔는지<br>그대로 공개합니다</h2>
-      <p class="lead">오픈 전이라고 빈 페이지를 두지 않겠습니다. 단계가 바뀔 때마다 이 화면을 갱신합니다.</p>
+      <h2 class="h2">오렌지 마켓이 곧 오픈합니다</h2>
+      <p class="lead lead--en">GRAND OPEN COMING SOON</p>
     </div>
 
     <ol class="prep">
@@ -461,11 +461,6 @@ body = """
         <p class="s"><span class="badge"><span class="dot"></span>예정</span></p>
       </li>
     </ol>
-
-    <div class="note note--navy mt-32">
-      <strong>오픈일은 아직 확정되지 않았습니다.</strong>
-      날짜가 정해지면 이 페이지와 오픈 알림 문자로 가장 먼저 알려드립니다. 확정 전 날짜를 임의로 표기하지 않습니다.
-    </div>
   </div>
 </section>
 
@@ -474,7 +469,7 @@ body = """
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">STORES</p>
-      <h2 class="h2">1호점부터 차례로<br>문을 엽니다</h2>
+      <h2 class="h2"><span class="en">GRAND OPEN COMING SOON</span></h2>
       <p class="lead">HMK홀딩스그룹이 보유·확보한 공간을 기준으로 출점 지역을 검토하고 있습니다. 지점이 확정되면 주소와 운영시간을 이 곳에 게재합니다.</p>
     </div>
 
@@ -573,7 +568,7 @@ write("index.html",
 # ==========================================================
 # 브랜드 소개
 # ==========================================================
-brand = phd("BRAND", "매일 쓰는 것을<br>가장 낮은 가격으로",
+brand = phd("BRAND", "매일 쓰는 제품,<br>가장 낮은 가격으로!",
             "오렌지 마켓은 창고형 할인매장입니다. 넓은 매장에 상품을 쌓아 두고, 박스 단위로 팔고, 남는 비용을 가격표에서 뺍니다. 브랜드를 만들면서 정한 기준을 그대로 적어 두었습니다.",
             [("브랜드", None)]) + """
 <section class="sec">
@@ -638,7 +633,7 @@ brand = phd("BRAND", "매일 쓰는 것을<br>가장 낮은 가격으로",
     <div class="duo">
       <div>
         <ol class="steps">
-          <li><div><p class="t">직매입 계약</p><p class="d">제조사·산지·총판과 직접 계약합니다. 카테고리 담당 MD가 단가, 최소 주문 수량, 납품 주기를 한 번에 확정합니다.</p></div></li>
+          <li><div><p class="t">초저가 매입 계약</p><p class="d">HMK만의 노하우를 가진 카테고리 담당 MD가 단가, 주문수량, 납품 주기를 한 번에 확정합니다.</p></div></li>
           <li><div><p class="t">대량 발주</p><p class="d">박스·팔레트 단위로 발주해 매입 단가를 낮춥니다. 소분과 재포장을 하지 않아 포장비가 붙지 않습니다.</p></div></li>
           <li><div><p class="t">창고형 적재</p><p class="d">입고한 팔레트를 그대로 매대에 올립니다. 별도 진열 작업이 없으니 인건비와 이중 보관비가 줄어듭니다.</p></div></li>
           <li><div><p class="t">회전 관리</p><p class="d">판매 속도를 매주 확인해 느린 품목은 정리하고 빠른 규격에 집중합니다. 재고가 오래 서 있으면 가격이 올라가기 때문입니다.</p></div></li>
@@ -768,16 +763,7 @@ def aisle_block(anchor, no, kr, en, img, alt, desc, rows, tags, rev=False):
 
 cat = phd("CATEGORY", "다섯 개의 통로,<br>다섯 가지 장보기",
           "홈페이지의 카테고리 구성은 실제 매장 통로와 같습니다. 화면에서 본 순서 그대로 매장에서 찾을 수 있게 맞췄습니다.",
-          [("상품 카테고리", None)]) + """
-<section class="sec sec--tight">
-  <div class="wrap">
-    <div class="note">
-      <strong>취급 품목은 오픈 전 소싱 결과에 따라 조정됩니다.</strong>
-      아래 목록은 카테고리별 기본 구성 계획입니다. 지점별 실제 취급 품목과 판매가는 오픈 시점에 확정해 공개합니다.
-    </div>
-  </div>
-</section>
-""" + aisle_block(
+          [("상품 카테고리", None)]) + """""" + aisle_block(
     "fresh", "01", "신선식품", "Fresh Food", "fresh-produce.webp",
     "나무 박스에 담긴 채소와 과일이 진열된 신선식품 매대.",
     "매일 들어오고 매일 빠지는 통로입니다. 산지에서 매장까지 거치는 단계를 줄여 신선도와 가격을 동시에 잡습니다. 대용량 팩과 소가족용 규격을 함께 운영합니다.",
@@ -851,19 +837,9 @@ write("category.html", "상품 카테고리",
 # ==========================================================
 # 특가·행사
 # ==========================================================
-deals = phd("DEALS", "특가를 언제, 어떻게<br>운영하는지 먼저 공개합니다",
-            "오픈 후 진행할 특가 운영 방식입니다. 행사 기간과 한도를 미리 정해 두고, 정해진 기간이 끝나면 가격표도 함께 내립니다.",
+deals = phd("DEALS", "초특가 행사!<br>기회를 놓치지 마세요!",
+            "오렌지마켓 소식을 신청하시면, 초특가 행사 일정과 특별가격을 만나보실 수 있습니다.",
             [("특가·행사", None)]) + """
-<section class="sec sec--tight">
-  <div class="wrap">
-    <div class="note">
-      <strong>지금은 진행 중인 행사가 없습니다.</strong>
-      1호점 오픈에 맞춰 첫 특가가 시작됩니다. 오픈 알림을 신청하시면 행사 시작 전에 문자로 안내드립니다.
-      <a class="lnk" href="notify.html" style="margin-left:6px">오픈 알림 신청 <span class="arw" aria-hidden="true">&rarr;</span></a>
-    </div>
-  </div>
-</section>
-
 <section class="sec">
   <div class="wrap">
     <div class="sec-head">
@@ -990,8 +966,8 @@ CONSENT = """
 # ==========================================================
 # 지점 안내
 # ==========================================================
-stores = phd("STORES", "1호점부터 차례로<br>문을 엽니다",
-             "HMK홀딩스그룹이 보유하거나 새로 확보한 공간을 대상으로 출점 지역을 검토하고 있습니다. 지점이 확정되면 주소, 운영시간, 주차 안내를 이 페이지에 바로 게재합니다.",
+stores = phd("STORES", '<span class="en">GRAND OPEN<br>COMING SOON</span>',
+             "HMK홀딩스그룹의 노하우로, 여러분들 곁에 오렌지 마켓이 함께합니다.",
              [("지점 안내", None)]) + """
 <section class="sec">
   <div class="wrap" data-filter-root>
@@ -1222,8 +1198,8 @@ write("store-detail.html", "1호점 미리보기",
 # ==========================================================
 # 대량·사업자 구매
 # ==========================================================
-business = phd("FOR BUSINESS", "정기적으로 쓰는 품목은<br>수량으로 이야기합시다",
-               "식당, 카페, 사무실, 기관처럼 같은 상품을 반복해서 쓰는 곳이라면 매장 판매가와 별도로 수량 기준 견적을 드립니다. 오픈 전에도 문의를 받고 있습니다.",
+business = phd("FOR BUSINESS", "사업자전용! 정기구매,<br>대량구매 초특가",
+               "식당, 카페, 사무실, 기관 등, 언제든 사업자구매 문의를 보내주세요",
                [("사업자 구매", None)]) + """
 <section class="sec">
   <div class="wrap">
@@ -1343,8 +1319,8 @@ write("business.html", "대량·사업자 구매",
 # ==========================================================
 # 입점·납품
 # ==========================================================
-supply = phd("SUPPLY", "지금은 상품을<br>고르고 있는 단계입니다",
-             "오픈 전 소싱이 한창입니다. 오렌지 마켓 통로에 올릴 만한 상품이 있다면 지금이 가장 좋은 시점입니다. 카테고리 담당 MD가 직접 검토하고 회신드립니다.",
+supply = phd("SUPPLY", "오렌지 전문MD의<br>꼼꼼한 상품 소싱",
+             "오렌지 마켓과 함께! 언제나 파트너분들의 연락을 기다립니다. 카테고리 담당 MD가 직접 검토하고 회신드립니다.",
              [("입점·납품", None)]) + """
 <section class="sec">
   <div class="wrap">
@@ -1374,7 +1350,7 @@ supply = phd("SUPPLY", "지금은 상품을<br>고르고 있는 단계입니다"
     <div class="sec-head">
       <p class="eyebrow">PROCESS</p>
       <h2 class="h2">제안부터 입점까지 다섯 단계</h2>
-      <p class="lead">각 단계의 결과는 남겨 주신 연락처로 회신드립니다. 검토 결과가 부정적인 경우에도 사유를 함께 알려드립니다.</p>
+      <p class="lead">각 단계의 결과는 남겨 주신 연락처로 회신드립니다.</p>
     </div>
     <ol class="steps">
       <li><div><p class="t">제안 접수</p><p class="d">아래 양식으로 회사, 상품, 단가, 최소 주문 수량, 인증 보유 여부를 보내 주세요. 상세 자료는 이메일로 이어서 받습니다.</p></div></li>
@@ -1660,7 +1636,7 @@ filt_btns = '\n'.join(
     f'<button class="filt" type="button" data-filter="{c.replace("·","")}" aria-pressed="false">{c}</button>' for c in CATS)
 
 faq = phd("SUPPORT", "자주 묻는 질문",
-          "오픈 전에 가장 많이 받는 질문을 모았습니다. 찾으시는 답이 없다면 아래 문의 창구를 이용해 주세요.",
+          "찾으시는 답이 없다면 아래 문의 창구를 이용해 주세요.",
           [("고객센터", None)]) + """
 <section class="sec">
   <div class="wrap" data-filter-root>

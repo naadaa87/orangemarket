@@ -803,3 +803,27 @@ table { border-collapse: collapse; width: 100%; }
 
 /* ---------- 39. 브레드크럼 현재 위치 ---------- */
 .crumb em { font-style: normal; color: #44443e; font-weight: 600; }
+
+/* ---------- 40. 영문 강조 문구 ---------- */
+/* GRAND OPEN COMING SOON 처럼 라틴 대문자로 쓰는 문구에 적용합니다. */
+.h1 .en, .h2 .en {
+  font-family: var(--f-en);
+  font-weight: 800;
+  letter-spacing: -.01em;
+  display: inline-block;
+}
+.hero__status b.en {
+  font-family: var(--f-en);
+  font-weight: 700;
+  letter-spacing: .06em;
+  font-size: 11.5px;
+  padding: 4px 12px;
+}
+.lead--en {
+  font-family: var(--f-en);
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--orange-700);
+  font-size: clamp(15px, 1.4vw, 18px);
+}
+.sec--navy .lead--en { color: #ff9d52; }

@@ -183,7 +183,7 @@ grep -rn "확정 후 공개"     *.html   # 지점·오픈일 등 미확정 값
 grep -rn "확정 후 게재"     *.html   # 법무 관련 미확정 값
 grep -rn "준비 중"          *.html   # 미오픈 기능 안내
 grep -rn "0,000"            *.html   # 가격표 예시 숫자
-grep -rn "orange-market.pages.dev" . # 임시 도메인
+grep -rn "hmkorangemarket.pages.dev" . # 임시 도메인
 ```
 
 ---
